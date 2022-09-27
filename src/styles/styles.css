@@ -2,11 +2,16 @@
 
 *{
     font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
 }
 
 .App{
     min-height: 100vh;
-    width: 100vh;
+    width: 100%;
     background-color: #dbfbbd;
 }
 
@@ -15,7 +20,7 @@
 } */
 
 header{
-    height: 120px;
+    min-height: 120px;
     background-color: #FFFFFF;
     display: flex;
     flex-wrap: wrap;

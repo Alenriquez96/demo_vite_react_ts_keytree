@@ -7,10 +7,7 @@ const SearchBar = () => {
     const handleSubmit = (e:any) =>{
         e.preventDefault();
         setBook(e.target.book.value);
-    }
-
-    console.log(book);
-    
+    }    
 
   return (
     <form onSubmit={handleSubmit}>
