@@ -5,11 +5,13 @@ import Books from './Books/Books';
 import Filter from './Filter/Filter';
 
 const Main = () => {
-  const [view, setView] = useState(true);
+  const [view, setView] = useState(true);  
 
-  const changeView = (option:boolean) =>{
+  const changeView = (option:boolean):void =>{
     setView(option);
   }
+
+
 
   return (
     <main>
@@ -18,7 +20,7 @@ const Main = () => {
         <ViewSelection view={changeView}/>
         <Filter/>
       </section>
-      <Books/>
+      <Books display={view}/>
     </main>
   )
 }

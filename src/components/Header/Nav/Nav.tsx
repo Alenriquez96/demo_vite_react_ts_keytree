@@ -7,9 +7,9 @@ import bestsellers from "../../../assets/bestsellers.png";
 const Nav = () => {
   return (
     <nav>
-        <Link to="/catalogue"><img src={catalogue}/>Home</Link>
-        <Link to="/discounts"><img src={discounts}/>List</Link>
-        <Link to="/bestsellers"><img src={bestsellers}/>Contact</Link>
+        <Link to="/catalogue"><img src={catalogue}/>Catalogue</Link>
+        <Link to="/discounts"><img src={discounts}/>Discounts</Link>
+        <Link to="/bestsellers"><img src={bestsellers}/>Bestsellers</Link>
     </nav>
   )
 }
