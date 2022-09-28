@@ -24,16 +24,20 @@ const books = (props:any) => {
     const handleSelection =()=>{
         if (view===true) {
             return <section id='books' style={{display: "flex"}}>
-                {books.map(book=>{
-                return <Book data={book}/>)
-            }}
+                {books.map((book,i)=><Book key={i} data={book}/>)}
             </section>
-        } else {
+            } else {
             return <section id='books'>books</section>
         }
     }
 
   return (
+    // <div>
+    //     {view===true?<section id='books' style={{display: "flex"}}>
+    //              {books.map(book=><Book data={book}/>)}
+    //          </section>:
+    //          <section id='books'>books</section>}
+    // </div>
     <div>{handleSelection()}</div>
   )
 }
