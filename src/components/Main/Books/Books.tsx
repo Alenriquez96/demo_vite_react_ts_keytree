@@ -24,10 +24,12 @@ const books = (props:any) => {
     const handleSelection =()=>{
         if (view===true) {
             return <section id='books' style={{display: "flex"}}>
-                {books.map((book,i)=><Book key={i} data={book}/>)}
+                {books.map((book:object,i:number)=><Book key={i} data={book}/>)}
             </section>
             } else {
-            return <section id='books'>books</section>
+            return <section id='books'>
+                {books.map((book:object,i:number)=><Book key={i} data={book}/>)}
+            </section>
         }
     }
 
@@ -38,7 +40,16 @@ const books = (props:any) => {
     //          </section>:
     //          <section id='books'>books</section>}
     // </div>
-    <div>{handleSelection()}</div>
+    <div style={{display: "flex", flexWrap:"wrap", justifyContent:"space-evenly", alignItems:"center"}}>
+        {/* {handleSelection()} */}
+        <Book/>
+        <Book/>
+        <Book/>
+        <Book/>
+        <Book/>
+        <Book/>
+        <Book/>
+    </div>
   )
 }
 

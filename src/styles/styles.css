@@ -5,12 +5,16 @@
     box-sizing: border-box;
 }
 
+
+/* ////////////////////ESTILOS PRINCIPALES//////////// */
+
+
 body{
     margin: 0;
 }
 
 .App{
-    min-height: 100vh;
+    /* min-height: 100vh; */
     width: 100%;
     background-color: #dbfbbd;
 }
@@ -18,6 +22,10 @@ body{
 /* body{
     min-width: 100vh;
 } */
+
+main{
+    min-height: 100vh;
+}
 
 header{
     min-height: 120px;
@@ -74,6 +82,9 @@ nav>a{
 }
 
 
+/* //ESTILOS BOTONES */
+
+
 button {
     border-radius: 8px;
     border: 1px solid transparent;
@@ -91,4 +102,53 @@ button {
   button:focus,
   button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+  }
+
+
+  /* ////////////////ESTILOS VISTA CATÁLOGO */
+
+  .bookCard{
+    display: flex;
+    background: #FFFFFF;
+    border: 1px solid #2B3E59;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 20px 0;
+  }
+
+  .facebook{
+    height: 220px;
+    width: 148px;
+    background-color: #A6A0A0;
+  }
+
+  .bookDesc{
+    width: 200px;
+    height: 220px;
+    text-align: center;
+  }
+
+  .bookDesc>h1{
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+
+    color: #2B3E59;
+  }
+
+  .bookDesc>h3{
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .bookDesc>p{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 17px;
   }
