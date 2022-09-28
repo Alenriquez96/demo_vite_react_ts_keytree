@@ -10,6 +10,7 @@ const Main = () => {
 
   const changeView = (option:boolean):void =>{
     setView(option);
+    
   }
 
 
