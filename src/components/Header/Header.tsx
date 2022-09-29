@@ -5,9 +5,9 @@ import ThemeButton from './ThemeButton/ThemeButton';
 import { useContext } from 'react';
 import { themeContext } from '../../context/themeContext';
 
-const Header = () => {
-  const {theme} = useContext(themeContext);
-  const darkmode:string = "header"+theme;
+const Header = ():JSX.Element => {
+  const theme = useContext(themeContext);  
+  const darkmode:string = "header"+theme.theme;
 
   return (
     <header className={darkmode}>

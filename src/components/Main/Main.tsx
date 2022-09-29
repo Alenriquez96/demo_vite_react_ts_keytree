@@ -16,8 +16,6 @@ const Main = () => {
     setView(option);
   }
 
-
-
   return (
     <main className={darkmode}>
       <section id='formSection'>
