@@ -29,6 +29,7 @@ main{
 
 header{
     min-height: 120px;
+    background-color: #FFFFFF;
     display: flex;
     flex-wrap: wrap;
     align-content: center;

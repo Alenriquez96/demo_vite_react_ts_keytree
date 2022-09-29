@@ -6,7 +6,7 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import "./styles/styles.css";
 import {themeContext} from './context/themeContext';
 
-function App() {
+function App():JSX.Element {
   const [theme, setTheme] = useState("");
 
   const toggleTheme = () => theme===""?setTheme("-dark"):setTheme("");
