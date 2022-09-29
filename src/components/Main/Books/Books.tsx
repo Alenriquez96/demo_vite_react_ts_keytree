@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import Book from "./Book/Book";
 
 const books = (props:any) => {
-    const [books, setBooks] = useState([]);
+    const [books, setBooks] = useState([{
+        title:"",
+        genre:"",
+        description:""
+    }]);
     
 
 
@@ -22,14 +26,14 @@ const books = (props:any) => {
 
     let view:boolean = props.display;
 
-    const handleSelection =()=>{
-        if (view===true) {
+    const handleSelection = () => {
+        if (view) {
             return <section id='books'>
-                {books.map((book:object,i:number)=><Book key={i}/>)}
+                {books.map((book, i: number) => <Book key={i} data={book} />)}
             </section>
-            } else {
-            return <section id='books' style={{display: "flex",flexWrap:"wrap", justifyContent:"space-evenly", alignItems:"center"}}>
-                {books.map((book:object,i:number)=><Book key={i} data={book}/>)}
+        } else {
+            return <section id='books' style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-evenly", alignItems: "center" }}>
+                {books.map((book, i: number) => <Book key={i} data={book} />)}
             </section>
         }
     }

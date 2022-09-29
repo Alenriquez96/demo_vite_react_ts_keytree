@@ -1,12 +1,19 @@
 import React from 'react';
 import Nav from './Nav/Nav';
 import logo from "../../assets/logotype.png"; 
+import ThemeButton from './ThemeButton/ThemeButton';
+import { useContext } from 'react';
+import { themeContext } from '../../context/themeContext';
 
 const Header = () => {
+  const {theme} = useContext(themeContext);
+  const darkmode:string = "header"+theme;
+
   return (
-    <header>
+    <header className={darkmode}>
       <img id='logo' src={logo} alt="logo" />
       <Nav/>
+      <ThemeButton/>
     </header>
   )
 }

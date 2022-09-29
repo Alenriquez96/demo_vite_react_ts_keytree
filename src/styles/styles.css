@@ -39,6 +39,19 @@ header{
     top: 0;
 }
 
+/* Modo oscuro */
+
+.header-dark{
+  background-color: #646cff;;
+}
+.header-dark>nav>a{
+  color: white;
+}
+
+.main-dark{
+  background-color: #2B3E59;
+}
+
 nav{
     display: flex;
     height: 100%;
@@ -153,3 +166,7 @@ button {
     font-size: 12px;
     line-height: 17px;
   }
+
+
+
+  
