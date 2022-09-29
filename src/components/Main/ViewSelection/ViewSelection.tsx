@@ -3,11 +3,11 @@ import lista from "../../../assets/lista.png";
 
 const ViewSelection = (props:any) => {
     
-    const handleViewSquares =()=>{
+    const handleViewSquares:()=>void =()=>{
         props.view(false);
-    }
+    } 
 
-    const handleViewList =()=>{
+    const handleViewList:()=>void =()=>{
         props.view(true);
     }
 
