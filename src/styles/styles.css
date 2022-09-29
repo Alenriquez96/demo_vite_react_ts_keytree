@@ -29,7 +29,6 @@ main{
 
 header{
     min-height: 120px;
-    background-color: #FFFFFF;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
@@ -62,14 +61,6 @@ nav{
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
-}
-
-input[type="text"]{
-    width: 447px;
-    height: 35px;
-    background: #FFFFFF;
-    border: 2px solid #D3BB3D;
-    border-radius: 6px;
 }
 
 nav>a{
@@ -113,11 +104,6 @@ button {
   button:hover {
     border-color: #646cff;
   }
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
-
 
   /* ////////////////ESTILOS VISTA CATÁLOGO */
 
@@ -168,5 +154,31 @@ button {
   }
 
 
+#searchBar{
+  width: 447px;
+  height: 35px;
+  background-color: #FFFFFF;
+  border: 2px solid #D3BB3D;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
 
+#searchBar>button, #searchBar>button:hover{
+  background: #FFFFFF;
+  border: none;
+}
+
+#searchBar>button>img{
+  width: 18px;
+}
+
+#searchBar>input{
+  width: 411px;
+  border: none;
+}
+
+#searchBar>input:focus{
+  outline: none;
+}
   
