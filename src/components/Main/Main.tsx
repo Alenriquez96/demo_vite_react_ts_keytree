@@ -8,7 +8,7 @@ import { themeContext } from '../../context/themeContext';
 
 
 const Main = () => {
-  const [view, setView] = useState(true);  
+  const [view, setView] = useState(false);  
   const {theme} = useContext(themeContext);
   const darkmode:string = "main"+theme;
 
