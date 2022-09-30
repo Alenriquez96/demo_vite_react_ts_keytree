@@ -41,10 +41,12 @@ const books = (props: any) => {
         <section
           id="books"
           style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-evenly",
-            alignItems: "center",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, 364px)",
+            width: "100%",
+            gridGap: "37px",
+            placeContent: "center",
+            margin: "20px",
           }}
         >
           {books.map((book, i: number) => (

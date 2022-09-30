@@ -9,7 +9,7 @@ const ViewSelection = (props: any) => {
 
   return (
     <div>
-      <button onClick={handleViewSquares}>
+      <button onClick={handleViewSquares} style={{ margin: "0 5px" }}>
         <svg
           width="24"
           height="24"
@@ -26,7 +26,7 @@ const ViewSelection = (props: any) => {
           />
         </svg>
       </button>
-      <button onClick={handleViewList}>
+      <button onClick={handleViewList} style={{ margin: "0 5px" }}>
         <svg
           width="24"
           height="24"
