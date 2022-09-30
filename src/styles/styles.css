@@ -1,195 +1,203 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lato&display=swap");
 
-*{
-    font-family: 'Lato', sans-serif;
-    box-sizing: border-box;
+* {
+  font-family: "Lato", sans-serif;
+  box-sizing: border-box;
 }
-
 
 /* ////////////////////ESTILOS PRINCIPALES//////////// */
 
-
-body{
-    margin: 0;
+body {
+  margin: 0;
 }
 
-.App{
-    /* min-height: 100vh; */
-    width: 100%;
-    background-color: #dbfbbd;
+.App {
+  /* min-height: 100vh; */
+  width: 100%;
+  background: radial-gradient(100% 197.75% at 100% 0%, #cefae5 0%, #e6fc9d 100%)
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
 }
 
 /* body{
     min-width: 100vh;
 } */
 
-main{
-    min-height: 100vh;
+main {
+  min-height: 100vh;
 }
 
-header{
-    min-height: 120px;
-    background-color: #FFFFFF;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    align-items: center;
-    justify-content: space-evenly;
-    position: sticky;
-    top: 0;
+header {
+  min-height: 120px;
+  background-color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  position: sticky;
+  top: 0;
 }
 
 /* Modo oscuro */
 
-.header-dark{
-  background-color: #646cff;;
+.header-dark {
+  background-color: #646cff;
 }
-.header-dark>nav>a{
+.header-dark > nav > a {
   color: white;
 }
 
-.main-dark{
-  background-color: #2B3E59;
+.main-dark {
+  background-color: #2b3e59;
 }
 
-nav{
-    display: flex;
-    height: 100%;
-    width: 70%;
-    align-content: center;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
+header > button {
+  display: grid;
+  place-items: center;
+  padding: 5px;
 }
 
-nav>a{
-    color: #2B3E59;
-    display: flex;
-    text-decoration: none;
-    width: 130px;
-    justify-content: space-evenly;
-    
+nav {
+  display: flex;
+  height: 100%;
+  width: 70%;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
 }
 
-#logo{
-    height: 58px;
-    width: 228px;
+nav > a {
+  color: #2b3e59;
+  display: flex;
+  text-decoration: none;
+  width: 130px;
+  justify-content: space-evenly;
 }
 
-#formSection{
-    display: flex;
-    height: 70px;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: center;
-    align-items: center;
+#logo {
+  height: 58px;
+  width: 228px;
 }
 
+#formSection {
+  display: flex;
+  height: 70px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+}
 
 /* //ESTILOS BOTONES */
 
-
 button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    /* padding: 0.6em 1.2em; */
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    /* background-color: #1a1a1a; */
-    cursor: pointer;
-    transition: border-color 0.25s;
-  }
-  button:hover {
-    border-color: #646cff;
-  }
+  border-radius: 8px;
+  border: 1px solid transparent;
+  /* padding: 0.6em 1.2em; */
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  /* background-color: #1a1a1a; */
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
 
-  /* ////////////////ESTILOS VISTA CATÁLOGO */
+/* ////////////////ESTILOS VISTA CATÁLOGO */
 
-  .bookCard{
-    display: flex;
-    background: #FFFFFF;
-    border: 1px solid #2B3E59;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin: 20px 0;
-  }
+.bookCard {
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #2b3e59;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 20px 0;
+}
 
-  .facebook{
-    height: 220px;
-    width: 148px;
-    background-color: #A6A0A0;
-  }
+.facebook {
+  height: 220px;
+  width: 148px;
+  background-color: #a6a0a0;
+}
 
-  .bookDesc{
-    width: 200px;
-    height: 220px;
-    text-align: center;
-  }
+.bookDesc {
+  width: 200px;
+  height: 220px;
+  text-align: center;
+}
 
-  .bookDesc>h1{
-    font-family: 'EB Garamond';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 26px;
+.bookDesc > h1 {
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 26px;
 
-    color: #2B3E59;
-  }
+  color: #2b3e59;
+}
 
-  .bookDesc>h3{
-    font-family: 'EB Garamond';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-  }
+.bookDesc > h3 {
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
 
-  .bookDesc>p{
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 17px;
-  }
+.bookDesc > p {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 17px;
+}
 
-
-#searchBar{
+#searchBar {
   width: 447px;
   height: 35px;
-  background-color: #FFFFFF;
-  border: 2px solid #D3BB3D;
+  background-color: #ffffff;
+  border: 2px solid #d3bb3d;
   border-radius: 6px;
   display: flex;
   align-items: center;
 }
 
-#searchBar>button, #searchBar>button:hover{
-  background: #FFFFFF;
+#searchBar > button,
+#searchBar > button:hover {
+  background: #ffffff;
   border: none;
 }
 
-#searchBar>button>img{
+#searchBar > button > img {
   width: 18px;
 }
 
-#searchBar>input{
+#searchBar > input {
   width: 411px;
   border: none;
 }
 
-#searchBar>input:focus{
+#searchBar > input:focus {
   outline: none;
 }
-  
-.popup-content{
+
+.popup-content {
   margin: auto;
   background: rgb(255, 255, 255);
   width: 190px;
   height: 200px;
   padding: 5px;
-  border: 1px solid #637ACC;
+  border: 1px solid #637acc;
 }
 
+/* MEDIAS QUERIES */
 
+@media (max-width: 860px) {
+  nav {
+    display: none;
+  }
+}
