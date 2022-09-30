@@ -4,11 +4,7 @@ import price from "../../../assets/price.png";
 import { useState } from "react";
 
 const Filter = () => {
-  const minValue = 200;
-  const maxValue = 1500;  
-  const [sliderMin, setSliderMin] = useState(minValue);
-  const [sliderMax, setSliderMax] = useState(maxValue);
-
+ 
   return (
     <Popup
       trigger={<button style={{background:"none"}}><img src={filter} alt="filters" /></button>}
