@@ -1,22 +1,21 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-const SearchBar: () => JSX.Element = () => {
+const SearchBar = (props: { data: any }): JSX.Element => {
   const [book, setBook] = useState("");
   const [text, setText] = useState("");
-
-  const handleSubmit: (e: any) => void = (e) => {
-    e.preventDefault();
-    setBook(e.target.book.value);
-  };
+  const searchInput = props.data;
 
   const handleText: () => void = () => {
-    let inpField: any = document.querySelector("#searchBar > input[type=text]");
+    let inpField: HTMLInputElement | null = document.querySelector(
+      "#searchBar > input[type=text]"
+    );
     setText("");
+    searchInput("");
     inpField!.value = "";
   };
 
   return (
-    <form onSubmit={handleSubmit} id="searchBar">
+    <form id="searchBar">
       <button>
         <svg
           width="20"
@@ -37,6 +36,7 @@ const SearchBar: () => JSX.Element = () => {
       <input
         onChange={(e) => {
           setText(e.target.value);
+          searchInput(e.target.value.toUpperCase());
         }}
         name="book"
         type="text"

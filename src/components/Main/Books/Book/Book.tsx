@@ -7,6 +7,7 @@ const Book = (props: {
   };
 }) => {
   const book = props.data;
+
   return (
     <div className="bookCard">
       <div className="facebook">
