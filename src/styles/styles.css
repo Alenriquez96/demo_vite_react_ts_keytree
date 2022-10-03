@@ -125,9 +125,9 @@ button:hover {
 }
 
 .bookDesc {
-  width: 200px;
   height: 220px;
   text-align: center;
+  width: 100%;
 }
 
 .bookDesc > h1 {
@@ -154,6 +154,9 @@ button:hover {
   font-weight: 300;
   font-size: 12px;
   line-height: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 2px;
 }
 
 #searchBar {
@@ -194,10 +197,65 @@ button:hover {
   border: 1px solid #637acc;
 }
 
+#burgerContainer {
+  display: none;
+}
+
 /* MEDIAS QUERIES */
 
 @media (max-width: 860px) {
   nav {
     display: none;
   }
+
+  header {
+    border-bottom: 4px solid #2b3e59;
+  }
+
+  #searchBar {
+    width: 366px;
+    margin: 10px 0;
+  }
+
+  #formSection {
+    margin: 10px 0;
+  }
+  #burgerContainer {
+    display: flex;
+  }
+}
+
+/* Burger menu */
+/* ---------------- Navbar and burger menu ------------------ */
+.navBar {
+  display: flex;
+}
+
+.burgerButton {
+  cursor: pointer;
+}
+
+.menu {
+  width: 326px;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 0;
+  /* z-index: -1; */
+  right: 0;
+  box-shadow: -5px 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* ------------- sliding menu ------------------ */
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
 }
