@@ -7,6 +7,7 @@ const books = (props: any) => {
       title: "",
       genre: "",
       description: "",
+      book_image: "",
     },
   ]);
 
