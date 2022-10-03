@@ -1,20 +1,19 @@
 import { useState } from "react";
-import Main from "./components/Main/Main";
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
-import "./styles/styles.css";
-import {themeContext} from './context/themeContext';
+import Main from "@/components/Main/Main";
+import Header from "@/components/Header/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "@/styles/styles.css";
+import { themeContext } from "@/context/themeContext";
 
-function App():JSX.Element {
+function App(): JSX.Element {
   const [theme, setTheme] = useState("");
 
-  const toggleTheme = () => theme===""?setTheme("-dark"):setTheme("");
+  const toggleTheme = () => (theme === "" ? setTheme("-dark") : setTheme(""));
 
-  const themeData ={
+  const themeData = {
     theme,
-    toggleTheme
-  }
+    toggleTheme,
+  };
 
   return (
     <div className="App">
@@ -24,11 +23,10 @@ function App():JSX.Element {
           <Routes>
             <Route element={<Main />} path="/" />
           </Routes>
-          <Footer />
         </BrowserRouter>
       </themeContext.Provider>
-    </div >
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

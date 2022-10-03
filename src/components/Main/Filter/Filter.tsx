@@ -1,5 +1,4 @@
 import Popup from "reactjs-popup";
-import { useState } from "react";
 
 const Filter = () => {
   return (
