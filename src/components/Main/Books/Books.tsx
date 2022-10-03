@@ -10,6 +10,17 @@ const books = (props: any) => {
       book_image: "",
     },
   ]);
+  const search: string = props.title;
+  const view: boolean = props.display;
+
+  const filtered:
+    | {
+        title: string;
+        genre: string;
+        description: string;
+        book_image: string;
+      }[]
+    | undefined = books.filter((book) => book.title.includes(search));
 
   useEffect(() => {
     const httpReq = async () => {
@@ -26,13 +37,11 @@ const books = (props: any) => {
     httpReq();
   }, []);
 
-  let view: boolean = props.display;
-
   const handleSelection = () => {
     if (view) {
       return (
         <section id="books">
-          {books.map((book, i: number) => (
+          {filtered.map((book, i: number) => (
             <Book key={i} data={book} />
           ))}
         </section>
@@ -50,7 +59,7 @@ const books = (props: any) => {
             margin: "20px",
           }}
         >
-          {books.map((book, i: number) => (
+          {filtered.map((book, i: number) => (
             <Book key={i} data={book} />
           ))}
         </section>

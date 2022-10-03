@@ -8,6 +8,7 @@ import { themeContext } from "@/context/themeContext";
 
 const Main = () => {
   const [view, setView] = useState(false);
+  const [search, setSearch] = useState("");
   const { theme } = useContext(themeContext);
   const darkmode: string = "main" + theme;
 
@@ -15,14 +16,18 @@ const Main = () => {
     setView(option);
   };
 
+  const searchInput = (title: string): void => {
+    setSearch(title);
+  };
+
   return (
     <main className={darkmode}>
       <section id="formSection">
-        <SearchBar />
+        <SearchBar data={searchInput} />
         <ViewSelection view={changeView} />
         <Filter />
       </section>
-      <Books display={view} />
+      <Books display={view} title={search} />
     </main>
   );
 };
