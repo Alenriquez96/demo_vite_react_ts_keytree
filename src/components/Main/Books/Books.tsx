@@ -27,7 +27,13 @@ const books = (props: any) => {
         amazon_product_url: string;
         publisher: string;
       }[]
-    | undefined = books.filter((book) => book.title.includes(search));
+    | undefined = books.filter((book) => {
+    return (
+      book.title.includes(search.toUpperCase()) ||
+      book.author.includes(search) ||
+      book.publisher.includes(search)
+    );
+  });
 
   useEffect(() => {
     const httpReq = async () => {

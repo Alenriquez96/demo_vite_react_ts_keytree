@@ -39,7 +39,7 @@ const SearchBar = (props: { data: any }): JSX.Element => {
       <input
         onChange={(e) => {
           setText(e.target.value);
-          searchInput(e.target.value.toUpperCase());
+          searchInput(e.target.value);
         }}
         name="book"
         type="text"
