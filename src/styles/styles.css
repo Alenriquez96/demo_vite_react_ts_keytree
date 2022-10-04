@@ -234,9 +234,6 @@ button:hover {
     margin: 10px 0;
   }
 
-  #formSection {
-    margin: 10px 0;
-  }
   #burgerContainer {
     display: flex;
   }
@@ -269,11 +266,14 @@ button:hover {
   /* z-index: -1; */
   right: 0;
   box-shadow: -5px 4px 6px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
 }
 
 /* ------------- sliding menu ------------------ */
 .hidden {
-  display: none;
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
 }
 
 .visible {
@@ -283,4 +283,6 @@ button:hover {
   align-content: center;
   justify-content: flex-start;
   align-items: center;
+  visibility: visible;
+  /* opacity: 1; */
 }
