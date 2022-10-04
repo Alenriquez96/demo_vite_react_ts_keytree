@@ -3,14 +3,10 @@ import SearchBar from "@/components/Main/SearchBar/SearchBar";
 import ViewSelection from "@/components/Main/ViewSelection/ViewSelection";
 import Books from "@/components/Main/Books/Books";
 import Filter from "@/components/Main/Filter/Filter";
-import { useContext } from "react";
-import { themeContext } from "@/context/themeContext";
 
 const Main = () => {
   const [view, setView] = useState(false);
   const [search, setSearch] = useState("");
-  const { theme } = useContext(themeContext);
-  const darkmode: string = "main" + theme;
 
   const changeView = (option: boolean): void => {
     setView(option);
@@ -21,7 +17,7 @@ const Main = () => {
   };
 
   return (
-    <main className={darkmode}>
+    <main>
       <section id="formSection">
         <SearchBar data={searchInput} />
         <ViewSelection view={changeView} />

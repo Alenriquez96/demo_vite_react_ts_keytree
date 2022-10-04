@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { EventHandler, FormEvent, useState } from "react";
 
 const SearchBar = (props: { data: any }): JSX.Element => {
-  const [book, setBook] = useState("");
   const [text, setText] = useState("");
   const searchInput = props.data;
+
+  const handleSubmit: (e: FormEvent) => void = (e: FormEvent) => {
+    e.preventDefault();
+  };
 
   const handleText: () => void = () => {
     let inpField: HTMLInputElement | null = document.querySelector(
@@ -15,7 +18,7 @@ const SearchBar = (props: { data: any }): JSX.Element => {
   };
 
   return (
-    <form id="searchBar">
+    <form onSubmit={handleSubmit} id="searchBar">
       <button>
         <svg
           width="20"

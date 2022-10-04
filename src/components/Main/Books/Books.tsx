@@ -40,7 +40,7 @@ const books = (props: any) => {
   const handleSelection = () => {
     if (view) {
       return (
-        <section id="books">
+        <section className="books">
           {filtered.map((book, i: number) => (
             <Book key={i} data={book} />
           ))}
@@ -49,7 +49,7 @@ const books = (props: any) => {
     } else {
       return (
         <section
-          id="books"
+          className="books"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, 364px)",

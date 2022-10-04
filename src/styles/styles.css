@@ -41,15 +41,16 @@ header {
 
 /* Modo oscuro */
 
+.App-dark {
+  width: 100%;
+  background-color: #2b3e59;
+}
+
 .header-dark {
   background-color: #646cff;
 }
 .header-dark > nav > a {
   color: white;
-}
-
-.main-dark {
-  background-color: #2b3e59;
 }
 
 header > button {
@@ -230,14 +231,22 @@ button:hover {
 
   #searchBar {
     width: 366px;
-    padding: 10px 0;
+    margin: 10px 0;
   }
 
   #formSection {
-    padding: 10px 0;
+    margin: 10px 0;
   }
   #burgerContainer {
     display: flex;
+  }
+
+  #formSection > div {
+    display: none;
+  }
+
+  #formSection > button {
+    display: none;
   }
 }
 
