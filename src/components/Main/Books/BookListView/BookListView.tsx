@@ -1,14 +1,14 @@
-const Book = (props: {
+const BookListView = (props: {
   data: {
     title: string;
-    genre: string;
     author: string;
+    genre: string;
     description: string;
     book_image: string;
-    publisher: string;
     amazon_product_url: string;
+    publisher: string;
   };
-}) => {
+}): JSX.Element => {
   const book = props.data;
 
   return (
@@ -18,11 +18,19 @@ const Book = (props: {
       </div>
       <div className="bookDesc">
         <h1>{book.title}</h1>
+        <h2>Author: {book.author}</h2>
+        <h3>Publisher: {book.publisher}</h3>
         <h3>Genre</h3>
         <p>{book.description}</p>
+        <a href={book.amazon_product_url}>
+          <img
+            src="https://www.vectorlogo.zone/logos/amazon/amazon-ar21.svg"
+            alt=""
+          />
+        </a>
       </div>
     </div>
   );
 };
 
-export default Book;
+export default BookListView;

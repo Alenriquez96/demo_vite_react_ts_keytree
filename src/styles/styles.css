@@ -122,6 +122,38 @@ button:hover {
 
 /* ////////////////ESTILOS VISTA CATÁLOGO */
 
+/* VISTA DE LISTA */
+.books-list {
+  width: 80%;
+}
+
+.books-list > .bookCard {
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 31%);
+}
+
+.books-list > .bookCard > .bookDesc {
+  text-align: center;
+  width: 100%;
+  display: grid;
+  place-content: center;
+}
+
+.books-list > .bookCard > .bookDesc > h2 {
+  font-family: "EB Garamond";
+  color: #2b3e59;
+  font-size: 17px;
+}
+
+.books-list > .bookCard > .facebook > img,
+.books-list > .bookCard > .facebook {
+  width: 250px;
+  height: 366px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+/* VISTA DE GRID */
 .bookCard {
   display: flex;
   background: #ffffff;
@@ -131,7 +163,7 @@ button:hover {
   transition: all 0.2s ease-in-out;
 }
 
-.bookCard:hover {
+.books-grid > .bookCard:hover {
   transform: scale(1.1);
 }
 
@@ -141,10 +173,15 @@ button:hover {
   background-color: #a6a0a0;
 }
 
-.bookDesc {
+.books-grid > .bookCard > .bookDesc {
   height: 220px;
   text-align: center;
   width: 100%;
+}
+
+.books-grid > .bookCard > .facebook > img {
+  width: 150px;
+  height: 220px;
 }
 
 .bookDesc > h1 {

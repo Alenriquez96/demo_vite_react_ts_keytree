@@ -4,7 +4,7 @@ const Filter = () => {
   return (
     <Popup
       trigger={
-        <button>
+        <button style={{ height: "31.5px", width: "38px" }}>
           <svg
             width="18"
             height="18"
