@@ -14,8 +14,11 @@ const books = (props: any) => {
       publisher: "",
     },
   ]);
+  const [list, setlist] = useState({ display_name: "" });
+  const randomNumber: number = Math.floor(Math.random() * 11);
   const search: string = props.title;
   const view: boolean = props.display;
+  console.log(list);
 
   const filtered:
     | {
@@ -39,11 +42,13 @@ const books = (props: any) => {
     const httpReq = async () => {
       try {
         let res = await fetch(
-          "https://api.nytimes.com/svc/books/v3/lists/manga.json?api-key=U5XodN0WD6AxEelHTmcyeksK5nC8On22"
+          "https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=U5XodN0WD6AxEelHTmcyeksK5nC8On22"
         );
         let data = await res.json();
+
         setTimeout(function () {
-          setBooks(data.results.books);
+          setBooks(data.results.lists[randomNumber].books);
+          setlist(data.results.lists[randomNumber]);
         }, 1000);
       } catch (error) {
         console.log(error);
@@ -57,7 +62,7 @@ const books = (props: any) => {
       return (
         <section className="books-list">
           {filtered.map((book, i: number) => (
-            <BookListView key={i} data={book} />
+            <BookListView key={i} data={book} category={list.display_name} />
           ))}
         </section>
       );
@@ -75,7 +80,7 @@ const books = (props: any) => {
           }}
         >
           {filtered.map((book, i: number) => (
-            <Book key={i} data={book} />
+            <Book key={i} data={book} category={list.display_name} />
           ))}
         </section>
       );
