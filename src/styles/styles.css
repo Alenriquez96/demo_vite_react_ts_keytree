@@ -265,6 +265,13 @@ button:hover {
 
   header {
     border-bottom: 4px solid #2b3e59;
+    height: 66px;
+  }
+
+  header > #burgerContainer > .navBar {
+    position: absolute;
+    top: 51px;
+    right: 32px;
   }
 
   #searchBar {
@@ -340,6 +347,7 @@ button:hover {
   height: 80px;
   margin: 90px 0;
 }
+
 .lds-ring div {
   box-sizing: border-box;
   display: block;
