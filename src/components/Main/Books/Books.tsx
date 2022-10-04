@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import Book from "@/components/Main/Books/Book/Book";
+import BookListView from "@/components/Main/Books/BookListView/BookListView";
 
 const books = (props: any) => {
   const [books, setBooks] = useState([
     {
       title: "",
       genre: "",
+      author: "",
       description: "",
       book_image: "",
+      amazon_product_url: "",
+      publisher: "",
     },
   ]);
   const search: string = props.title;
@@ -17,8 +21,11 @@ const books = (props: any) => {
     | {
         title: string;
         genre: string;
+        author: string;
         description: string;
         book_image: string;
+        amazon_product_url: string;
+        publisher: string;
       }[]
     | undefined = books.filter((book) => book.title.includes(search));
 
@@ -40,16 +47,16 @@ const books = (props: any) => {
   const handleSelection = () => {
     if (view) {
       return (
-        <section className="books">
+        <section className="books-list">
           {filtered.map((book, i: number) => (
-            <Book key={i} data={book} />
+            <BookListView key={i} data={book} />
           ))}
         </section>
       );
     } else {
       return (
         <section
-          className="books"
+          className="books-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, 364px)",

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchBar from "@/components/Main/SearchBar/SearchBar";
 import ViewSelection from "@/components/Main/ViewSelection/ViewSelection";
 import Books from "@/components/Main/Books/Books";
@@ -7,6 +7,23 @@ import Filter from "@/components/Main/Filter/Filter";
 const Main = () => {
   const [view, setView] = useState(false);
   const [search, setSearch] = useState("");
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  const detectSize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", detectSize);
+
+    if (windowWidth <= 860) {
+      setView(false);
+    }
+
+    return () => {
+      window.removeEventListener("resize", detectSize);
+    };
+  }, [windowWidth]);
 
   const changeView = (option: boolean): void => {
     setView(option);
