@@ -33,10 +33,12 @@ const books = (props: any) => {
     const httpReq = async () => {
       try {
         let res = await fetch(
-          "https://api.nytimes.com/svc/books/v3/lists/series-books.json?api-key=U5XodN0WD6AxEelHTmcyeksK5nC8On22"
+          "https://api.nytimes.com/svc/books/v3/lists/manga.json?api-key=U5XodN0WD6AxEelHTmcyeksK5nC8On22"
         );
         let data = await res.json();
-        setBooks(data.results.books);
+        setTimeout(function () {
+          setBooks(data.results.books);
+        }, 1000);
       } catch (error) {
         console.log(error);
       }
@@ -74,18 +76,31 @@ const books = (props: any) => {
     }
   };
 
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-evenly",
-        alignItems: "center",
-      }}
-    >
-      {handleSelection()}
-    </div>
-  );
+  if (books[0].title === "") {
+    return (
+      <div className="spinnerContainer">
+        <div className="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+        }}
+      >
+        {handleSelection()}
+      </div>
+    );
+  }
 };
 
 export default books;
