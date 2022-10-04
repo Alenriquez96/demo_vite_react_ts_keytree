@@ -63,6 +63,7 @@ const Sidebar = (): JSX.Element => {
             Bookshop
           </h1>
           <svg
+            style={{ position: "absolute", top: "51px", right: "32px" }}
             className="burgerButton"
             width="14"
             height="14"
