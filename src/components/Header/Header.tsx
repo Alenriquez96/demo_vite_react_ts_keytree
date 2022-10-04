@@ -27,7 +27,11 @@ const Header = (): JSX.Element => {
             strokeLinejoin="round"
           />
         </svg>
-        <h1>Bookshop</h1>
+        {darkmode === "header" ? (
+          <h1>Bookshop</h1>
+        ) : (
+          <h1 style={{ color: "white" }}>Bookshop</h1>
+        )}
       </div>
       <Nav />
       <ThemeButton />
