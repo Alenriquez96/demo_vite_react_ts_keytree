@@ -246,10 +246,10 @@ button:hover {
 .popup-content {
   margin: auto;
   background: rgb(255, 255, 255);
-  width: 190px;
-  height: 200px;
+  width: 300px;
   padding: 5px;
   border: 1px solid #637acc;
+  overflow: hidden;
 }
 
 #burgerContainer {

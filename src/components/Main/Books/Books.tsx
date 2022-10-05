@@ -1,24 +1,55 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Book from "@/components/Main/Books/Book/Book";
 import BookListView from "@/components/Main/Books/BookListView/BookListView";
+import { Context } from "@/context/context";
 
-const books = (props: any) => {
-  const [books, setBooks] = useState([
+const books = (props: { title: string; display: boolean }): JSX.Element => {
+  const { getCategories } = useContext(Context);
+  const [randomNumber, setRandomNumber] = useState(0);
+  const [categories, setCategories] = useState([
     {
-      title: "",
-      genre: "",
-      author: "",
-      description: "",
-      book_image: "",
-      amazon_product_url: "",
-      publisher: "",
+      list_name: "",
+      books: [
+        {
+          title: "",
+          genre: "",
+          author: "",
+          description: "",
+          book_image: "",
+          amazon_product_url: "",
+          publisher: "",
+        },
+      ],
+      display_name: "",
     },
   ]);
-  const [list, setlist] = useState({ display_name: "" });
-  const randomNumber: number = Math.floor(Math.random() * 11);
+
   const search: string = props.title;
   const view: boolean = props.display;
-  console.log(list);
+  const list = categories[randomNumber];
+  const books = categories[randomNumber].books;
+
+  useEffect(() => {
+    const httpReq = async () => {
+      try {
+        let res = await fetch(
+          "https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=U5XodN0WD6AxEelHTmcyeksK5nC8On22"
+        );
+        let data: { results: { lists: [] } } = await res.json();
+
+        setTimeout(function () {
+          setRandomNumber(
+            Math.floor(Math.random() * data.results.lists.length)
+          );
+          setCategories([...data.results.lists]);
+          getCategories([...data.results.lists]);
+        }, 1000);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    httpReq();
+  }, []);
 
   const filtered:
     | {
@@ -37,25 +68,6 @@ const books = (props: any) => {
       book.publisher.includes(search)
     );
   });
-
-  useEffect(() => {
-    const httpReq = async () => {
-      try {
-        let res = await fetch(
-          "https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=U5XodN0WD6AxEelHTmcyeksK5nC8On22"
-        );
-        let data = await res.json();
-
-        setTimeout(function () {
-          setBooks(data.results.lists[randomNumber].books);
-          setlist(data.results.lists[randomNumber]);
-        }, 1000);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    httpReq();
-  }, []);
 
   const handleSelection = () => {
     if (view) {

@@ -3,29 +3,43 @@ import Main from "@/components/Main/Main";
 import Header from "@/components/Header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "@/styles/styles.css";
-import { themeContext } from "@/context/themeContext";
+import { Context } from "@/context/context";
 
 function App(): JSX.Element {
+  interface categories {
+    list_name: string;
+  }
+  [];
+
   const [theme, setTheme] = useState("");
+  const [categories, setCategories] = useState([{}]);
+  console.log(categories);
+
   const darkmode: string = "App" + theme;
 
   const toggleTheme = () => (theme === "" ? setTheme("-dark") : setTheme(""));
 
-  const themeData = {
+  const getCategories = (category: { list_name: string }[]) => {
+    setCategories(category);
+  };
+
+  const data = {
     theme,
     toggleTheme,
+    categories,
+    getCategories,
   };
 
   return (
     <div className={darkmode}>
-      <themeContext.Provider value={themeData}>
+      <Context.Provider value={data}>
         <BrowserRouter>
           <Header />
           <Routes>
             <Route element={<Main />} path="/" />
           </Routes>
         </BrowserRouter>
-      </themeContext.Provider>
+      </Context.Provider>
     </div>
   );
 }

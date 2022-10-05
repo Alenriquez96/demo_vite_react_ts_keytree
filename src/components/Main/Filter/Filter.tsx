@@ -1,6 +1,9 @@
 import Popup from "reactjs-popup";
+import { useContext } from "react";
+import { Context } from "@/context/context";
 
-const Filter = () => {
+const Filter = (): JSX.Element => {
+  const { categories } = useContext(Context);
   return (
     <Popup
       trigger={
@@ -22,7 +25,7 @@ const Filter = () => {
           </svg>
         </button>
       }
-      position="bottom center"
+      position="bottom right"
       nested
     >
       <div style={{ display: "flex", alignItems: "center" }}>
@@ -44,19 +47,16 @@ const Filter = () => {
 
         <p style={{ color: "#637ACC", fontSize: "12px" }}>Price</p>
       </div>
-
-      <div>
-        <input type="checkbox" />
-        <label htmlFor="">Self Help</label>
-      </div>
-      <div>
-        <input type="checkbox" />
-        <label htmlFor="">Comedy</label>
-      </div>
-      <div>
-        <input type="checkbox" />
-        <label htmlFor="">History</label>
-      </div>
+      {categories !== undefined && categories.length > 1
+        ? categories.map((category, i) => {
+            return (
+              <div>
+                <input type="checkbox" value={category.list_name} />
+                <label>{category.list_name}</label>
+              </div>
+            );
+          })
+        : ""}
     </Popup>
   );
 };
