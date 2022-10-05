@@ -4,30 +4,23 @@ import BookListView from "@/components/Main/Books/BookListView/BookListView";
 import { Context } from "@/context/context";
 
 const books = (props: { title: string; display: boolean }): JSX.Element => {
-  const { getCategories } = useContext(Context);
-  const [randomNumber, setRandomNumber] = useState(0);
-  const [categories, setCategories] = useState([
+  const { getCategories, selectedCategories } = useContext(Context);
+  console.log(selectedCategories);
+
+  const [allBooks, setAllBooks] = useState([
     {
-      list_name: "",
-      books: [
-        {
-          title: "",
-          genre: "",
-          author: "",
-          description: "",
-          book_image: "",
-          amazon_product_url: "",
-          publisher: "",
-        },
-      ],
-      display_name: "",
+      title: "",
+      genre: "",
+      author: "",
+      description: "",
+      book_image: "",
+      amazon_product_url: "",
+      publisher: "",
     },
   ]);
 
   const search: string = props.title;
   const view: boolean = props.display;
-  const list = categories[randomNumber];
-  const books = categories[randomNumber].books;
 
   useEffect(() => {
     const httpReq = async () => {
@@ -36,14 +29,17 @@ const books = (props: { title: string; display: boolean }): JSX.Element => {
           "https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=U5XodN0WD6AxEelHTmcyeksK5nC8On22"
         );
         let data: { results: { lists: [] } } = await res.json();
+        let lists: { books: object[] }[] = data.results.lists;
 
         setTimeout(function () {
-          setRandomNumber(
-            Math.floor(Math.random() * data.results.lists.length)
-          );
-          setCategories([...data.results.lists]);
           getCategories([...data.results.lists]);
-        }, 1000);
+          lists.map((list: any) => {
+            return list.books.map((book: any) => {
+              book.genre = list.list_name;
+              return allBooks.push(book);
+            });
+          });
+        }, 2000);
       } catch (error) {
         console.log(error);
       }
@@ -61,11 +57,15 @@ const books = (props: { title: string; display: boolean }): JSX.Element => {
         amazon_product_url: string;
         publisher: string;
       }[]
-    | undefined = books.filter((book) => {
+    | undefined = allBooks.filter((book, i: number) => {
+    console.log(selectedCategories[i]);
+
     return (
       book.title.includes(search.toUpperCase()) ||
       book.author.includes(search) ||
-      book.publisher.includes(search)
+      book.publisher.includes(search) ||
+      book.genre.includes(search) ||
+      book.genre === selectedCategories[i]
     );
   });
 
@@ -74,7 +74,7 @@ const books = (props: { title: string; display: boolean }): JSX.Element => {
       return (
         <section className="books-list">
           {filtered.map((book, i: number) => (
-            <BookListView key={i} data={book} category={list.display_name} />
+            <BookListView key={i} data={book} />
           ))}
         </section>
       );
@@ -92,14 +92,14 @@ const books = (props: { title: string; display: boolean }): JSX.Element => {
           }}
         >
           {filtered.map((book, i: number) => (
-            <Book key={i} data={book} category={list.display_name} />
+            <Book key={i} data={book} />
           ))}
         </section>
       );
     }
   };
 
-  if (books[0].title === "") {
+  if (allBooks.length <= 1) {
     return (
       <div className="spinnerContainer">
         <div className="lds-ring">
@@ -111,6 +111,7 @@ const books = (props: { title: string; display: boolean }): JSX.Element => {
       </div>
     );
   } else {
+    // document.getElementsByClassName("bookCard")[0].style.display = "none";
     return (
       <div
         style={{

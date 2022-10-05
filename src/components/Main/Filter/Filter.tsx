@@ -1,9 +1,22 @@
 import Popup from "reactjs-popup";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Context } from "@/context/context";
 
+//create your forceUpdate hook
+function useForceUpdate() {
+  const [value, setValue] = useState(0); // integer state
+  return () => setValue((value) => value + 1); // update state to force render
+  // An function that increment 👆🏻 the previous state like here
+  // is better than directly setting `value + 1`
+}
+
 const Filter = (): JSX.Element => {
-  const { categories } = useContext(Context);
+  // call your hook here
+  const forceUpdate = useForceUpdate();
+
+  const { categories, getSelectedCategories, selectedCategories } =
+    useContext(Context);
+
   return (
     <Popup
       trigger={
@@ -47,16 +60,27 @@ const Filter = (): JSX.Element => {
 
         <p style={{ color: "#637ACC", fontSize: "12px" }}>Price</p>
       </div>
-      {categories !== undefined && categories.length > 1
-        ? categories.map((category, i) => {
-            return (
-              <div>
-                <input type="checkbox" value={category.list_name} />
-                <label>{category.list_name}</label>
-              </div>
-            );
-          })
-        : ""}
+      <div style={{ margin: "10px" }}>
+        {categories !== undefined && categories.length > 1
+          ? categories.map((category, i) => {
+              return (
+                <div key={i} style={{ marginBottom: "5px" }}>
+                  <input
+                    onChange={(e) =>
+                      getSelectedCategories([
+                        ...selectedCategories,
+                        e.target.value,
+                      ])
+                    }
+                    type="checkbox"
+                    value={category.list_name}
+                  />
+                  <label>{category.list_name}</label>
+                </div>
+              );
+            })
+          : ""}
+      </div>
     </Popup>
   );
 };

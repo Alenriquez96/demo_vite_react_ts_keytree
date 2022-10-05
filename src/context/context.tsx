@@ -5,6 +5,8 @@ interface ContextProps {
   toggleTheme: () => void;
   categories: { list_name?: string }[];
   getCategories: (category: { list_name: string }[]) => void;
+  selectedCategories: string[];
+  getSelectedCategories: (selected: any) => void;
 }
 
 const defaultContext = {
@@ -16,5 +18,7 @@ const defaultContext = {
     },
   ],
   getCategories: () => null,
+  selectedCategories: [],
+  getSelectedCategories: () => null,
 };
 export const Context = React.createContext<ContextProps>(defaultContext);

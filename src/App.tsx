@@ -13,7 +13,7 @@ function App(): JSX.Element {
 
   const [theme, setTheme] = useState("");
   const [categories, setCategories] = useState([{}]);
-  console.log(categories);
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
   const darkmode: string = "App" + theme;
 
@@ -23,11 +23,17 @@ function App(): JSX.Element {
     setCategories(category);
   };
 
+  const getSelectedCategories = (selected: []) => {
+    setSelectedCategories(selected);
+  };
+
   const data = {
     theme,
     toggleTheme,
     categories,
     getCategories,
+    selectedCategories,
+    getSelectedCategories,
   };
 
   return (

@@ -121,6 +121,9 @@ button:hover {
   border-color: #646cff;
 }
 
+.bookCard:nth-child(1) {
+  display: none;
+}
 /* ////////////////ESTILOS VISTA CATÁLOGO */
 
 /* VISTA DE LISTA */
@@ -178,6 +181,7 @@ button:hover {
   height: 220px;
   text-align: center;
   width: 100%;
+  border-left: 1px solid black;
 }
 
 .books-grid > .bookCard > .facebook > img {
