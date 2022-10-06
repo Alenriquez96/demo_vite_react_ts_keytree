@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { themeContext } from "@/context/themeContext";
+import { Context } from "@/context/context";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 const ThemeButton = () => {
-  const { theme, toggleTheme } = useContext(themeContext);
+  const { theme, toggleTheme } = useContext(Context);
 
   return (
     <button onClick={toggleTheme}>

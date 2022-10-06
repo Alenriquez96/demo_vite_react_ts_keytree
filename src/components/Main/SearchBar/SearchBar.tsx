@@ -1,4 +1,4 @@
-import { EventHandler, FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 
 const SearchBar = (props: { data: any }): JSX.Element => {
   const [text, setText] = useState("");

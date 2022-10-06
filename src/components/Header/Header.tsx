@@ -2,10 +2,10 @@ import Nav from "@/components/Header/Nav/Nav";
 import ThemeButton from "@/components/Header/ThemeButton/ThemeButton";
 import Sidebar from "@/components/Header/Sidebar/Sidebar";
 import { useContext } from "react";
-import { themeContext } from "@/context/themeContext";
+import { Context } from "@/context/context";
 
 const Header = (): JSX.Element => {
-  const theme = useContext(themeContext);
+  const theme = useContext(Context);
   const darkmode: string = "header" + theme.theme;
 
   return (

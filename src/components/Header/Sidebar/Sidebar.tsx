@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Filter from "@/components/Main/Filter/Filter";
+import { Context } from "@/context/context";
 
 const Sidebar = (): JSX.Element => {
-  // to change burger classes
+  const context = useContext(Context);
 
   const [menu_class, setMenuClass] = useState("menu hidden");
   const [isMenuClicked, setIsMenuClicked] = useState(false);
 
-  // toggle burger menu change
   const updateMenu = () => {
     if (!isMenuClicked) {
       setMenuClass("menu visible");
@@ -21,23 +21,43 @@ const Sidebar = (): JSX.Element => {
   return (
     <div id="burgerContainer">
       <div className="navBar">
-        <svg
-          className="burgerButton"
-          width="18"
-          height="12"
-          viewBox="0 0 18 12"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          onClick={updateMenu}
-        >
-          <path
-            d="M0.75 0.75H17.25M0.75 6H17.25M0.75 11.25H17.25"
-            stroke="black"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        {context.theme === "" ? (
+          <svg
+            className="burgerButton"
+            width="18"
+            height="12"
+            viewBox="0 0 18 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            onClick={updateMenu}
+          >
+            <path
+              d="M0.75 0.75H17.25M0.75 6H17.25M0.75 11.25H17.25"
+              stroke="black"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        ) : (
+          <svg
+            className="burgerButton"
+            width="18"
+            height="12"
+            viewBox="0 0 18 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            onClick={updateMenu}
+          >
+            <path
+              d="M0.75 0.75H17.25M0.75 6H17.25M0.75 11.25H17.25"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        )}
       </div>
 
       <div className={menu_class}>

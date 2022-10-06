@@ -8,7 +8,6 @@ const Book = (props: {
     publisher: string;
     amazon_product_url: string;
   };
-  category: string;
 }) => {
   const book = props.data;
 
@@ -19,7 +18,7 @@ const Book = (props: {
       </div>
       <div className="bookDesc">
         <h1>{book.title}</h1>
-        <h3>Genre: {props.category}</h3>
+        <h3>Genre: {book.genre}</h3>
         <p>{book.description}</p>
       </div>
     </div>

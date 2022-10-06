@@ -8,7 +8,6 @@ const BookListView = (props: {
     amazon_product_url: string;
     publisher: string;
   };
-  category: string;
 }): JSX.Element => {
   const book = props.data;
 
@@ -21,7 +20,7 @@ const BookListView = (props: {
         <h1>{book.title}</h1>
         <h2>Author: {book.author}</h2>
         <h3>Publisher: {book.publisher}</h3>
-        <h3>Genre: {props.category}</h3>
+        <h3>Genre: {book.genre}</h3>
         <p>{book.description}</p>
         <a href={book.amazon_product_url}>
           <img
