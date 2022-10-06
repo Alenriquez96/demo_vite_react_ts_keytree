@@ -5,19 +5,7 @@ import { Context } from "@/context/context";
 
 const books = (props: { title: string; display: boolean }): JSX.Element => {
   const { getCategories, selectedCategories } = useContext(Context);
-  console.log(selectedCategories);
-
-  const [allBooks, setAllBooks] = useState([
-    {
-      title: "",
-      genre: "",
-      author: "",
-      description: "",
-      book_image: "",
-      amazon_product_url: "",
-      publisher: "",
-    },
-  ]);
+  const [allBooks, setAllBooks]: any = useState([]);
 
   const search: string = props.title;
   const view: boolean = props.display;
@@ -47,7 +35,7 @@ const books = (props: { title: string; display: boolean }): JSX.Element => {
     httpReq();
   }, []);
 
-  const filtered:
+  let filteredCategories:
     | {
         title: string;
         genre: string;
@@ -56,16 +44,40 @@ const books = (props: { title: string; display: boolean }): JSX.Element => {
         book_image: string;
         amazon_product_url: string;
         publisher: string;
-      }[]
-    | undefined = allBooks.filter((book, i: number) => {
-    console.log(selectedCategories[i]);
+      }[][];
 
+  filteredCategories = selectedCategories.map((categories) => {
+    return allBooks.filter((books: any) => books.genre.includes(categories));
+  });
+
+  let newAllBooks: {
+    title: string;
+    genre: string;
+    author: string;
+    description: string;
+    book_image: string;
+    amazon_product_url: string;
+    publisher: string;
+  }[] = [];
+  let concat = () => {
+    if (filteredCategories.length === 0) {
+      newAllBooks = allBooks;
+    } else {
+      for (let i = 0; i < filteredCategories.length; i++) {
+        for (let j = 0; j < filteredCategories[i].length; j++) {
+          newAllBooks.push(filteredCategories[i][j]);
+        }
+      }
+    }
+  };
+  concat();
+
+  const filtered = newAllBooks.filter((book, i: number) => {
     return (
       book.title.includes(search.toUpperCase()) ||
       book.author.includes(search) ||
       book.publisher.includes(search) ||
-      book.genre.includes(search) ||
-      book.genre === selectedCategories[i]
+      book.genre.includes(search)
     );
   });
 
@@ -111,7 +123,6 @@ const books = (props: { title: string; display: boolean }): JSX.Element => {
       </div>
     );
   } else {
-    // document.getElementsByClassName("bookCard")[0].style.display = "none";
     return (
       <div
         style={{

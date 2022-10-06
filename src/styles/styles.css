@@ -122,7 +122,7 @@ button:hover {
 }
 
 .bookCard:nth-child(1) {
-  display: none;
+  /* display: none; */
 }
 /* ////////////////ESTILOS VISTA CATÁLOGO */
 
