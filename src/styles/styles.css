@@ -179,9 +179,12 @@ button:hover {
 
 .books-grid > .bookCard > .bookDesc {
   height: 220px;
-  text-align: center;
+  /* text-align: center; */
   width: 100%;
   border-left: 1px solid black;
+  display: grid;
+  padding: 10px;
+  place-content: center;
 }
 
 .books-grid > .bookCard > .facebook > img {
@@ -190,6 +193,7 @@ button:hover {
 }
 
 .bookDesc > h1 {
+  margin: auto 0;
   font-family: "EB Garamond";
   font-style: normal;
   font-weight: 600;
@@ -208,7 +212,6 @@ button:hover {
 }
 
 .bookDesc > p {
-  margin: auto;
   font-family: "Lato";
   font-style: normal;
   font-weight: 300;
