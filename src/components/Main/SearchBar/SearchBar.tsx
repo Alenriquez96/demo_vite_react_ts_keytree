@@ -1,8 +1,14 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
+import { useDebounce } from "usehooks-ts";
 
 const SearchBar = (props: { data: any }): JSX.Element => {
   const [text, setText] = useState("");
+  const debouncedText = useDebounce(text, 1000);
   const searchInput = props.data;
+
+  useEffect(() => {
+    searchInput(debouncedText);
+  }, [debouncedText]);
 
   const handleSubmit: (e: FormEvent) => void = (e: FormEvent) => {
     e.preventDefault();
@@ -39,7 +45,9 @@ const SearchBar = (props: { data: any }): JSX.Element => {
       <input
         onChange={(e) => {
           setText(e.target.value);
-          searchInput(e.target.value);
+          // setTimeout(() => {
+          //   searchInput(e.target.value);
+          // }, 3000);
         }}
         name="book"
         type="text"

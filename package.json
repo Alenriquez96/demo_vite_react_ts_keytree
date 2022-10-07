@@ -11,7 +11,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "reactjs-popup": "^2.0.5"
+    "reactjs-popup": "^2.0.5",
+    "usehooks-ts": "^2.7.2"
   },
   "devDependencies": {
     "@types/node": "^18.8.0",

@@ -157,6 +157,21 @@ button:hover {
   border-bottom-left-radius: 25px;
 }
 
+.books-list > .bookCard > .bookDesc > p {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+  width: 235px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 /* VISTA DE GRID */
 .bookCard {
   display: flex;
@@ -211,7 +226,7 @@ button:hover {
   line-height: 18px;
 }
 
-.bookDesc > p {
+.books-grid > .bookCard > .bookDesc > p {
   font-family: "Lato";
   font-style: normal;
   font-weight: 300;
