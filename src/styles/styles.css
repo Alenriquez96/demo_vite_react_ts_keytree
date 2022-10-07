@@ -63,7 +63,7 @@ header > button {
 nav {
   display: flex;
   height: 100%;
-  width: 70%;
+  width: 470px;
   align-content: center;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -208,6 +208,7 @@ button:hover {
 }
 
 .bookDesc > p {
+  margin: auto;
   font-family: "Lato";
   font-style: normal;
   font-weight: 300;
@@ -215,7 +216,11 @@ button:hover {
   line-height: 17px;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin: 0 2px;
+  /* white-space: nowrap; */
+  width: 150px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 #searchBar {
