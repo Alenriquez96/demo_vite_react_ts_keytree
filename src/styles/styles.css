@@ -128,12 +128,16 @@ button:hover {
 
 /* VISTA DE LISTA */
 .books-list {
+  margin: auto;
   width: 80%;
+  max-width: 1200px;
+  min-width: 850px;
 }
 
 .books-list > .bookCard {
   border-radius: 25px;
   box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 31%);
+  margin: 40px;
 }
 
 .books-list > .bookCard > .bookDesc {
@@ -403,4 +407,9 @@ button:hover {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.infinite-scroll-component__outerdiv {
+  width: 100%;
+  margin: 20px;
 }
