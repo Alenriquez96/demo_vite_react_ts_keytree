@@ -3,6 +3,7 @@ import SearchBar from "@/components/Main/SearchBar/SearchBar";
 import ViewSelection from "@/components/Main/ViewSelection/ViewSelection";
 import Books from "@/components/Main/Books/Books";
 import Filter from "@/components/Main/Filter/Filter";
+import ScrollButton from "@/components/Main/scrollButton/scrollButton";
 
 const Main = () => {
   const [view, setView] = useState(false);
@@ -35,6 +36,7 @@ const Main = () => {
 
   return (
     <main>
+      <ScrollButton />
       <section id="formSection">
         <SearchBar data={searchInput} />
         <ViewSelection view={changeView} />

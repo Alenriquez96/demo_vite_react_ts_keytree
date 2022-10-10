@@ -70,6 +70,9 @@ const Filter = (): JSX.Element => {
               );
             })
           : ""}
+        <button onClick={() => getSelectedCategories([])}>
+          Reset categories
+        </button>
       </form>
     </Popup>
   );
