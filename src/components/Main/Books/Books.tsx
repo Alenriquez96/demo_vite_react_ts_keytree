@@ -3,6 +3,7 @@ import Book from "@/components/Main/Books/Book/Book";
 import BookListView from "@/components/Main/Books/BookListView/BookListView";
 import { Context } from "@/context/context";
 import InfiniteScroll from "react-infinite-scroll-component";
+import axios from "axios";
 
 const books = (props: { title: string; display: boolean }): JSX.Element => {
   const { getCategories, selectedCategories } = useContext(Context);
@@ -29,10 +30,10 @@ const books = (props: { title: string; display: boolean }): JSX.Element => {
   useEffect(() => {
     const httpReq = async () => {
       try {
-        let res = await fetch(
+        let res = await axios(
           "https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=U5XodN0WD6AxEelHTmcyeksK5nC8On22"
         );
-        let data: { results: { lists: [] } } = await res.json();
+        let data: { results: { lists: [] } } = await res.data;
         let lists: { books: object[] }[] = data.results.lists;
 
         setTimeout(function () {

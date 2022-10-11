@@ -2,17 +2,17 @@
     "roots": ["<rootDir>/src"],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
-    },
+    },  
+    "transformIgnorePatterns": ["<rootDir>/node_modules/"],
     "setupFilesAfterEnv": [
-      // "@testing-library/react/cleanup-after-each",
-      // "@testing-library/jest-dom/extend-expect"
+ 
     ],
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
     "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
     "bail": 1,
     "verbose": true,
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
     "moduleNameMapper": {
-      "^@/(.*)$": "<rootDir>/src/$1",
-      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
-    }
+      "\\.(css|less)$": "<rootDir>/__mocks__/css_stub.js",
+      "^@/(.*)$": "<rootDir>/src/$1"    },
+    "testEnvironment": "jsdom"
   } 
