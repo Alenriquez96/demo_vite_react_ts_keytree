@@ -4,14 +4,15 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "setupFilesAfterEnv": [
-      "@testing-library/react/cleanup-after-each",
-      "@testing-library/jest-dom/extend-expect"
+      // "@testing-library/react/cleanup-after-each",
+      // "@testing-library/jest-dom/extend-expect"
     ],
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
     "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
     "bail": 1,
     "verbose": true,
     "moduleNameMapper": {
-      "^@/(.*)$": "<rootDir>/src/$1"
+      "^@/(.*)$": "<rootDir>/src/$1",
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
     }
   } 
