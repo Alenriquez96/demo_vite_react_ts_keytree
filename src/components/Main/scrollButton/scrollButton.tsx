@@ -1,8 +1,10 @@
 import { useState } from "react";
 
 const scrollButton = () => {
-  const [visible, setVisible] = useState(false);
-  console.log(visible);
+  const [visible, setVisible]: [
+    boolean,
+    React.Dispatch<React.SetStateAction<boolean>>
+  ] = useState(false);
 
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
@@ -16,7 +18,7 @@ const scrollButton = () => {
     }
   };
 
-  const scrollToTop = () => {
+  const scrollToTop: () => void = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
