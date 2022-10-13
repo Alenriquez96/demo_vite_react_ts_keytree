@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import Book from "@/components/Main/Books/Book/Book";
 import BookListView from "@/components/Main/Books/BookListView/BookListView";
+import SearchError from "./SearchError/SearchError";
 import { Context } from "@/context/context";
 import InfiniteScroll from "react-infinite-scroll-component";
 import axios from "axios";
@@ -100,6 +101,7 @@ const books = (props: { title: string; display: boolean }): JSX.Element => {
       book.genre.includes(search)
     );
   });
+  console.log(filtered);
 
   //This is where we render the component and choose the display
   const handleSelection = () => {
@@ -127,6 +129,8 @@ const books = (props: { title: string; display: boolean }): JSX.Element => {
             ))}
           </InfiniteScroll>
         );
+      } else if (filtered.length === 0) {
+        return <SearchError />;
       } else {
         return (
           <section className="books-list">
@@ -168,6 +172,8 @@ const books = (props: { title: string; display: boolean }): JSX.Element => {
             ))}
           </InfiniteScroll>
         );
+      } else if (filtered.length === 0) {
+        return <SearchError />;
       } else {
         return (
           <section

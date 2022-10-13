@@ -1,7 +1,9 @@
 {
     "roots": ["<rootDir>/src"],
+    "preset": "ts-jest",
     "transform": {
-      "^.+\\.tsx?$": "ts-jest"
+      "^.+\\.tsx?$": "ts-jest",
+      "^(axios).+\\.tsx$": "ts-jest"
     },  
     "transformIgnorePatterns": ["<rootDir>/node_modules/"],
     "setupFilesAfterEnv": [
