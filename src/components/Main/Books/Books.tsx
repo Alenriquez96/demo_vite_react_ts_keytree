@@ -101,7 +101,6 @@ const books = (props: { title: string; display: boolean }): JSX.Element => {
       book.genre.includes(search)
     );
   });
-  console.log(filtered);
 
   //This is where we render the component and choose the display
   const handleSelection = () => {
