@@ -19,10 +19,6 @@ body {
     /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
 }
 
-/* body{
-    min-width: 100vh;
-} */
-
 main {
   min-height: 100vh;
 }
@@ -63,7 +59,7 @@ header > button {
 nav {
   display: flex;
   height: 100%;
-  width: 70%;
+  width: 470px;
   align-content: center;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -121,19 +117,20 @@ button:hover {
   border-color: #646cff;
 }
 
-.bookCard:nth-child(1) {
-  /* display: none; */
-}
 /* ////////////////ESTILOS VISTA CATÁLOGO */
 
 /* VISTA DE LISTA */
 .books-list {
+  margin: auto;
   width: 80%;
+  max-width: 1200px;
+  min-width: 850px;
 }
 
 .books-list > .bookCard {
   border-radius: 25px;
   box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 31%);
+  margin: 40px;
 }
 
 .books-list > .bookCard > .bookDesc {
@@ -155,6 +152,21 @@ button:hover {
   height: 366px;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
+}
+
+.books-list > .bookCard > .bookDesc > p {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+  width: 235px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 /* VISTA DE GRID */
@@ -179,9 +191,12 @@ button:hover {
 
 .books-grid > .bookCard > .bookDesc {
   height: 220px;
-  text-align: center;
+  /* text-align: center; */
   width: 100%;
   border-left: 1px solid black;
+  display: grid;
+  padding: 10px;
+  place-content: center;
 }
 
 .books-grid > .bookCard > .facebook > img {
@@ -190,6 +205,7 @@ button:hover {
 }
 
 .bookDesc > h1 {
+  margin: auto 0;
   font-family: "EB Garamond";
   font-style: normal;
   font-weight: 600;
@@ -207,7 +223,7 @@ button:hover {
   line-height: 18px;
 }
 
-.bookDesc > p {
+.books-grid > .bookCard > .bookDesc > p {
   font-family: "Lato";
   font-style: normal;
   font-weight: 300;
@@ -215,7 +231,11 @@ button:hover {
   line-height: 17px;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin: 0 2px;
+  /* white-space: nowrap; */
+  width: 150px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 #searchBar {
@@ -380,4 +400,35 @@ button:hover {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* Infinite scroll styles */
+.infinite-scroll-component__outerdiv {
+  width: 100%;
+  margin: 20px;
+}
+
+/* scroll button styles */
+
+#scrollTop {
+  position: fixed;
+  background-color: #4e80e3;
+  right: 50px;
+  bottom: 40px;
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  z-index: 4;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+
+#scrollTop:active {
+  background-color: #555;
+}
+
+#scrollTop.show {
+  opacity: 1;
 }

@@ -1,4 +1,4 @@
-const BookListView = (props: {
+export interface Props {
   data: {
     title: string;
     author: string;
@@ -8,7 +8,8 @@ const BookListView = (props: {
     amazon_product_url: string;
     publisher: string;
   };
-}): JSX.Element => {
+}
+const BookListView = (props: Props): JSX.Element => {
   const book = props.data;
 
   return (
