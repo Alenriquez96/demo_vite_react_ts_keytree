@@ -1,0 +1,20 @@
+{
+    "roots": ["<rootDir>/src"],
+    "preset": "ts-jest",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest",
+      "^(axios).+\\.tsx$": "ts-jest"
+    },  
+    "transformIgnorePatterns": ["<rootDir>/node_modules/"],
+    "setupFilesAfterEnv": [
+ 
+    ],
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+    "bail": 1,
+    "verbose": true,
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/__mocks__/css_stub.js",
+      "^@/(.*)$": "<rootDir>/src/$1"    },
+    "testEnvironment": "jsdom"
+  } 
